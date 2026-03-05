@@ -1,535 +1,468 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Premium Real Estate — Curators of New Zealand's Most Exclusive Luxury Real Estate</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/main.css">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>WALL® Real Estate — Auckland's Premier Luxury Property Specialists</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+:root{
+  --grey:#3c3c3c;--grey-d:#333;--grey-l:#464646;
+  --red:#b5281f;--red-h:#cc2d22;
+  --text:#f0ede8;--muted:rgba(240,237,232,.52);--border:rgba(255,255,255,.09);
+  --serif:'Cormorant Garamond',Georgia,serif;--sans:'Montserrat',sans-serif;
+  --ease:cubic-bezier(0.16,1,0.3,1);--nav:72px;
+}
+body{background:var(--grey);color:var(--text);font-family:var(--sans);font-weight:300;font-size:15px;line-height:1.7;overflow-x:hidden}
+a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+::selection{background:var(--red);color:#fff}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:var(--red)}
+#nav{position:fixed;top:0;left:0;right:0;z-index:900;height:var(--nav);display:flex;align-items:center;padding:0 52px;transition:background .4s,box-shadow .4s}
+#nav.scrolled{background:rgba(51,51,51,.95);backdrop-filter:blur(20px);box-shadow:0 1px 0 var(--border)}
+.logo{display:flex;flex-direction:column;line-height:1;font-family:var(--sans);font-weight:700;font-size:21px;letter-spacing:.32em;color:var(--text)}
+.logo::after{content:'';display:block;height:2px;background:var(--red);width:100%;margin-top:5px}
+.logo sup{font-size:9px;font-weight:400;letter-spacing:.05em;position:relative;top:-5px}
+nav ul{display:flex;gap:34px;list-style:none;margin-left:auto}
+nav ul a{font-size:10.5px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);transition:color .25s;position:relative}
+nav ul a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--red);transform:scaleX(0);transition:transform .3s var(--ease);transform-origin:left}
+nav ul a:hover{color:var(--text)}nav ul a:hover::after{transform:scaleX(1)}
+.nav-cta{margin-left:36px;padding:10px 26px;background:var(--red);color:#fff;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;transition:background .25s}
+.nav-cta:hover{background:var(--red-h)}
+#hero{position:relative;height:100vh;min-height:680px;display:grid;grid-template-columns:1fr 420px;overflow:hidden}
+.hero-photo{position:relative;overflow:hidden}
+.hero-photo img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);animation:hZoom 16s ease-out forwards}
+@keyframes hZoom{from{transform:scale(1.08)}to{transform:scale(1)}}
+.hero-photo-ov{position:absolute;inset:0;background:linear-gradient(to right,transparent 55%,var(--grey) 100%),linear-gradient(to bottom,rgba(0,0,0,.08),rgba(0,0,0,.35))}
+.hero-panel{background:var(--grey-d);display:flex;flex-direction:column;justify-content:center;padding:0 52px;border-left:1px solid var(--border)}
+.eyebrow{font-size:9px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--red);margin-bottom:18px;opacity:0;transform:translateY(14px);animation:fUp .8s .5s var(--ease) forwards}
+.hero-h1{font-family:var(--serif);font-weight:300;font-size:clamp(36px,3.6vw,56px);line-height:1.08;opacity:0;transform:translateY(18px);animation:fUp .9s .7s var(--ease) forwards}
+.hero-h1 em{font-style:italic}
+.hero-sub{font-size:12.5px;color:var(--muted);line-height:1.85;margin-top:20px;opacity:0;transform:translateY(14px);animation:fUp .9s .9s var(--ease) forwards}
+.hero-search{display:flex;margin-top:28px;opacity:0;transform:translateY(14px);animation:fUp .9s 1.05s var(--ease) forwards}
+.hero-search input{flex:1;background:rgba(255,255,255,.06);border:1px solid var(--border);border-right:none;color:var(--text);font-family:var(--sans);font-size:12px;font-weight:300;padding:12px 16px;outline:none;transition:border-color .25s}
+.hero-search input::placeholder{color:var(--muted)}
+.hero-search input:focus{border-color:rgba(181,40,31,.5)}
+.hero-search button{background:var(--red);color:#fff;font-size:9.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:12px 20px;transition:background .2s}
+.hero-search button:hover{background:var(--red-h)}
+.hero-btns{display:flex;flex-direction:column;gap:10px;margin-top:16px;opacity:0;transform:translateY(14px);animation:fUp .9s 1.15s var(--ease) forwards}
+.btn-solid{display:block;padding:13px 28px;text-align:center;background:var(--red);color:#fff;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;transition:background .25s}
+.btn-solid:hover{background:var(--red-h)}
+.btn-ghost{display:block;padding:12px 28px;text-align:center;border:1px solid rgba(255,255,255,.22);color:var(--text);font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;transition:all .25s}
+.btn-ghost:hover{border-color:var(--text);background:rgba(255,255,255,.05)}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:32px;background:var(--border);opacity:0;transform:translateY(14px);animation:fUp .9s 1.3s var(--ease) forwards}
+.hstat{background:var(--grey-d);padding:18px 20px}
+.hstat-n{font-family:var(--serif);font-size:34px;font-weight:300;line-height:1;color:var(--red)}
+.hstat-n span{font-size:16px;color:var(--text)}
+.hstat-l{font-size:8.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:5px}
+@keyframes fUp{to{opacity:1;transform:translateY(0)}}
+#ticker{background:var(--red);overflow:hidden;padding:13px 0}
+.tick-inner{display:flex;white-space:nowrap;animation:scroll 44s linear infinite}
+.ti{display:inline-flex;align-items:center;gap:10px;padding:0 28px;font-size:9.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.9)}
+.td{width:3px;height:3px;background:rgba(255,255,255,.5);border-radius:50%;flex-shrink:0}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+#featured{padding:0}
+.feat-wrap{display:grid;grid-template-columns:1fr 460px;min-height:82vh}
+.feat-img{position:relative;overflow:hidden;background:#111}
+.feat-badge{position:absolute;top:32px;left:32px;z-index:2;background:var(--red);color:#fff;font-size:9px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;padding:7px 16px}
+.feat-loc-tag{position:absolute;top:32px;left:160px;z-index:2;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.85);padding:7px 16px;background:rgba(0,0,0,.38);backdrop-filter:blur(6px)}
+.feat-photo{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.feat-img:hover .feat-photo{transform:scale(1.03)}
+.thumbs{position:absolute;bottom:0;left:0;right:0;display:flex;gap:2px;height:90px;background:rgba(0,0,0,.6);padding:2px}
+.thumb{flex:1;overflow:hidden;cursor:pointer;position:relative}
+.thumb img{width:100%;height:100%;object-fit:cover;filter:brightness(.7);transition:filter .3s}
+.thumb:hover img{filter:brightness(1)}
+.thumb-more{position:absolute;inset:0;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:#fff}
+.feat-panel{background:var(--grey-d);display:flex;flex-direction:column;justify-content:center;padding:56px 50px;border-left:1px solid var(--border)}
+.feat-ey{font-size:9px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--red);margin-bottom:12px}
+.feat-title{font-family:var(--serif);font-weight:300;font-size:clamp(28px,2.8vw,42px);line-height:1.1}
+.feat-title em{font-style:italic}
+.feat-addr{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:10px 0 20px}
+.feat-desc{font-size:12.5px;color:var(--muted);line-height:1.85;padding:14px 16px;background:rgba(255,255,255,.04);border-left:2px solid var(--red);margin-bottom:22px}
+.feat-specs{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-bottom:22px}
+.fspec{background:var(--grey-d);padding:14px 16px}
+.fspec label{font-size:8.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:4px}
+.fspec p{font-family:var(--serif);font-size:19px;font-weight:400;line-height:1}
+.fspec p small{font-family:var(--sans);font-size:11px;font-weight:300;color:var(--muted)}
+.feat-pl{font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.feat-price{font-family:var(--serif);font-size:28px;font-weight:300;margin-bottom:6px}
+.feat-dl{font-size:11px;color:var(--muted);margin-bottom:22px;line-height:1.7}
+.feat-dl strong{color:var(--text)}
+.agent-row{display:flex;gap:14px;padding-top:20px;border-top:1px solid var(--border);flex-wrap:wrap}
+.agent-n{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:5px}
+.abtns{display:flex;gap:5px}
+.abtn{padding:5px 12px;border:1px solid var(--border);font-size:9.5px;font-weight:500;letter-spacing:.1em;color:var(--muted);transition:all .2s}
+.abtn:hover{border-color:var(--red);color:var(--red)}
+#properties{padding:88px 0}
+.sw{max-width:1360px;margin:0 auto;padding:0 52px}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:44px}
+.sec-lbl{font-size:9px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+.sec-title{font-family:var(--serif);font-weight:300;font-size:clamp(30px,3.8vw,52px);line-height:1.1}
+.sec-title em{font-style:italic}
+.view-all-lnk{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--red);padding-bottom:2px;transition:color .2s;white-space:nowrap}
+.view-all-lnk:hover{color:var(--text)}
+.filters{display:flex;gap:3px;margin-bottom:32px}
+.filt{padding:8px 20px;font-size:9.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border);transition:all .2s}
+.filt.on,.filt:hover{background:var(--red);border-color:var(--red);color:#fff}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+.pc{position:relative;overflow:hidden;background:#111;cursor:pointer}
+.pc:first-child{grid-column:span 2}
+.pimg{width:100%;height:420px;object-fit:cover;filter:brightness(.82);transition:transform .7s var(--ease),filter .4s}
+.pc:first-child .pimg{height:520px}
+.pc:hover .pimg{transform:scale(1.04);filter:brightness(.95)}
+.pov{position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(0,0,0,.72))}
+.pinfo{position:absolute;bottom:0;left:0;right:0;padding:26px 30px}
+.ptag{display:inline-block;padding:3px 11px;background:var(--red);font-size:8px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;margin-bottom:9px}
+.psub{font-size:10px;font-weight:600;letter-spacing:.17em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:5px}
+.pname{font-family:var(--serif);font-size:24px;font-weight:300;line-height:1.15}
+.pdets{display:flex;gap:14px;margin-top:9px}
+.pd{font-size:9.5px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.pd strong{display:block;font-family:var(--serif);font-size:16px;font-weight:400;color:var(--text);letter-spacing:0}
+.pva{text-align:center;margin-top:40px}
+#specialists{padding:88px 0;background:var(--grey-l)}
+.sgrid{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-top:52px}
+.scard{display:grid;grid-template-columns:220px 1fr;background:var(--grey-d);overflow:hidden;transition:transform .3s var(--ease)}
+.scard:hover{transform:translateY(-2px)}
+.sphoto{width:220px;height:320px;object-fit:cover;object-position:top center;filter:grayscale(12%) brightness(.88);transition:filter .5s}
+.scard:hover .sphoto{filter:grayscale(0%) brightness(.96)}
+.sbody{padding:28px 26px;display:flex;flex-direction:column;justify-content:space-between}
+.sbadge{font-size:8.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;display:block}
+.sname{font-family:var(--serif);font-size:24px;font-weight:400;text-transform:uppercase;letter-spacing:.04em}
+.srole{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.sareas{display:flex;flex-wrap:wrap;gap:4px;margin:14px 0}
+.sarea{padding:3px 10px;border:1px solid var(--border);font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.sbtns{display:flex;gap:4px;flex-wrap:wrap;margin-top:auto;padding-top:14px}
+.sbtn{padding:7px 14px;border:1px solid var(--border);font-size:9.5px;font-weight:600;letter-spacing:.12em;color:var(--muted);transition:all .2s;text-align:center}
+.sbtn:hover{border-color:var(--red);color:var(--red)}
+.sbtn.r{background:var(--red);border-color:var(--red);color:#fff}.sbtn.r:hover{background:var(--red-h)}
+#about{padding:108px 0;background:var(--grey-d);position:relative;overflow:hidden}
+#about::before{content:'WALL';position:absolute;right:-40px;top:50%;transform:translateY(-50%);font-family:var(--sans);font-weight:700;font-size:200px;letter-spacing:.3em;color:rgba(255,255,255,.024);pointer-events:none;user-select:none}
+.agrid{display:grid;grid-template-columns:1fr 1fr;gap:76px;align-items:center}
+.aimg-wrap{position:relative}
+.aimg{width:100%;height:540px;object-fit:cover}
+.aimg-accent{position:absolute;bottom:-20px;right:-20px;width:180px;height:180px;object-fit:cover;border:4px solid var(--grey-d)}
+.aquote{font-family:var(--serif);font-size:clamp(20px,2.4vw,32px);font-weight:300;line-height:1.4;margin-top:26px;padding-top:26px;border-top:1px solid var(--border)}
+.aquote em{font-style:italic;color:var(--red)}
+.abody{font-size:12.5px;color:var(--muted);line-height:1.9;margin-top:18px}
+.astats{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:32px;background:var(--border)}
+.astat{background:var(--grey-d);padding:22px 26px}
+.astat-n{font-family:var(--serif);font-size:40px;font-weight:300;line-height:1;color:var(--red)}
+.astat-l{font-size:8.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+#break{height:54vh;min-height:360px;overflow:hidden;position:relative}
+.break-bg{position:absolute;inset:-15%;background-image:url('images/L1070200-1024x683.jpg');background-size:cover;background-position:center;background-attachment:fixed}
+.break-ov{position:absolute;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center}
+.break-txt{font-family:var(--serif);font-weight:300;font-size:clamp(24px,3.8vw,52px);line-height:1.25;text-align:center;max-width:780px;padding:0 44px}
+.break-txt em{font-style:italic;color:rgba(255,255,255,.7)}
+#contact{padding:88px 0;background:var(--grey-l)}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:76px;align-items:start}
+.cform{display:flex;flex-direction:column;gap:13px;margin-top:32px}
+.crow{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.field{display:flex;flex-direction:column;gap:7px}
+.field label{font-size:8.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.field input,.field select,.field textarea{background:rgba(255,255,255,.05);border:1px solid var(--border);color:var(--text);font-family:var(--sans);font-size:13px;font-weight:300;padding:12px 14px;outline:none;transition:border-color .25s;-webkit-appearance:none}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--red)}
+.field textarea{height:106px;resize:vertical}
+.cdets{margin-top:32px;display:flex;flex-direction:column;gap:16px}
+.cdet{display:flex;gap:12px;align-items:flex-start}
+.cico{width:34px;height:34px;background:var(--red);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:14px;margin-top:2px}
+.ctxt label{font-size:8.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:2px}
+.ctxt a,.ctxt p{font-size:13px;color:var(--text);transition:color .2s}.ctxt a:hover{color:var(--red)}
+#footer{background:var(--grey-d);padding:66px 0 34px;border-top:1px solid var(--border)}
+.ftop{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:52px;padding-bottom:44px;border-bottom:1px solid var(--border)}
+.flogo{font-family:var(--sans);font-weight:700;font-size:18px;letter-spacing:.32em;display:inline-flex;flex-direction:column;line-height:1}
+.flogo::after{content:'';display:block;height:2px;background:var(--red);width:100%;margin-top:5px}
+.ftag{font-size:12px;color:var(--muted);line-height:1.75;margin-top:16px;max-width:260px}
+.social{display:flex;gap:7px;margin-top:20px}
+.social a{width:31px;height:31px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--muted);transition:all .2s}
+.social a:hover{border-color:var(--red);background:var(--red);color:#fff}
+.fcol h4{font-size:9px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--text);margin-bottom:16px}
+.fcol ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.fcol ul a{font-size:12px;color:var(--muted);transition:color .2s}.fcol ul a:hover{color:var(--red)}
+.fbot{display:flex;justify-content:space-between;align-items:center;padding-top:22px;font-size:10.5px;color:rgba(255,255,255,.22)}
+.fbot a{transition:color .2s}.fbot a:hover{color:var(--muted)}
+#cbtn{position:fixed;bottom:30px;right:30px;z-index:800;width:56px;height:56px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 26px rgba(0,0,0,.45);transition:transform .3s var(--ease),box-shadow .3s;cursor:pointer}
+#cbtn:hover{transform:scale(1.08);box-shadow:0 10px 36px rgba(181,40,31,.5)}
+#cbtn svg{width:23px;height:23px;fill:#fff}
+.cpulse{position:absolute;top:4px;right:4px;width:11px;height:11px;background:#2ecc71;border-radius:50%;border:2px solid var(--red);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.3);opacity:.7}}
+#chat{position:fixed;bottom:102px;right:30px;z-index:801;width:372px;max-height:580px;background:var(--grey-d);border:1px solid var(--border);box-shadow:0 20px 66px rgba(0,0,0,.65);display:flex;flex-direction:column;transform:translateY(16px) scale(.97);opacity:0;pointer-events:none;transition:transform .35s var(--ease),opacity .3s}
+#chat.open{transform:translateY(0) scale(1);opacity:1;pointer-events:all}
+.chead{background:var(--red);padding:15px 18px;display:flex;align-items:center;gap:11px}
+.cav{width:35px;height:35px;border-radius:50%;overflow:hidden;border:2px solid rgba(255,255,255,.3);flex-shrink:0}
+.cav img{width:100%;height:100%;object-fit:cover}
+.cname{font-size:13px;font-weight:600;color:#fff}
+.cstatus{font-size:10px;color:rgba(255,255,255,.7);display:flex;align-items:center;gap:4px}
+.sdot{width:6px;height:6px;background:#2ecc71;border-radius:50%}
+.cx{margin-left:auto;color:rgba(255,255,255,.7);font-size:18px;cursor:pointer;transition:color .2s}.cx:hover{color:#fff}
+.cmsgs{flex:1;overflow-y:auto;padding:16px 16px 8px;display:flex;flex-direction:column;gap:9px;max-height:340px}
+.msg{display:flex;flex-direction:column;max-width:85%;gap:3px;animation:mi .3s var(--ease)}
+@keyframes mi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.msg.a{align-self:flex-start}.msg.u{align-self:flex-end}
+.bbl{padding:9px 13px;font-size:12.5px;line-height:1.65;font-weight:300}
+.msg.a .bbl{background:var(--grey-l);border-left:2px solid var(--red);border-radius:0 10px 10px 10px;color:var(--text)}
+.msg.u .bbl{background:var(--red);color:#fff;border-radius:10px 10px 0 10px}
+.mtime{font-size:9px;color:rgba(255,255,255,.25);letter-spacing:.04em}
+.msg.u .mtime{text-align:right}
+.qrs{display:flex;flex-wrap:wrap;gap:5px;padding:0 16px 9px}
+.qrs button{padding:5px 11px;border:1px solid var(--border);background:transparent;font-size:10.5px;color:var(--muted);transition:all .2s;cursor:pointer;font-family:var(--sans)}
+.qrs button:hover{border-color:var(--red);color:var(--red)}
+.cinrow{display:flex;border-top:1px solid var(--border);background:var(--grey-l)}
+#cin{flex:1;background:transparent;border:none;outline:none;padding:12px 14px;font-family:var(--sans);font-size:13px;font-weight:300;color:var(--text)}
+#cin::placeholder{color:rgba(255,255,255,.25)}
+#csend-btn{width:44px;background:var(--red);border:none;cursor:pointer;color:#fff;font-size:14px;display:flex;align-items:center;justify-content:center;transition:background .2s}
+#csend-btn:hover{background:var(--red-h)}
+.typ{display:flex;align-items:center;gap:4px;padding:9px 13px;background:var(--grey-l);border-left:2px solid var(--red);border-radius:0 10px 10px 10px;max-width:50px}
+.typ span{width:5px;height:5px;background:var(--muted);border-radius:50%;animation:td 1.2s infinite}
+.typ span:nth-child(2){animation-delay:.2s}.typ span:nth-child(3){animation-delay:.4s}
+@keyframes td{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-5px);opacity:1}}
+.cfoot{text-align:center;padding:8px;font-size:9.5px;color:rgba(255,255,255,.2);border-top:1px solid var(--border)}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv.on{opacity:1;transform:translateY(0)}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}
+@media(max-width:1100px){
+  #hero{grid-template-columns:1fr;height:auto;padding-top:var(--nav)}
+  .hero-panel{padding:44px 28px 52px}
+  .feat-wrap{grid-template-columns:1fr}.feat-img{height:58vw}
+  .sgrid{grid-template-columns:1fr}
+  .agrid{grid-template-columns:1fr;gap:36px}
+  .cgrid{grid-template-columns:1fr}
+  .ftop{grid-template-columns:1fr 1fr;gap:32px}
+  .pgrid{grid-template-columns:1fr}.pc:first-child{grid-column:span 1}
+  .sw{padding:0 24px}
+}
+@media(max-width:768px){
+  nav ul,.nav-cta{display:none}
+  .feat-panel{padding:32px 22px}
+  .scard{grid-template-columns:1fr}.sphoto{width:100%;height:260px}
+  .ftop{grid-template-columns:1fr}
+  #chat{right:10px;left:10px;width:auto}
+}
+</style>
 </head>
 <body>
-
-<!-- ══════════════════════════════════════════
-     NAVIGATION
-══════════════════════════════════════════ -->
-<nav class="nav" id="nav">
-  <a href="#" class="logo-mark">
-    <span class="logo-word">Premium<sup>®</sup></span>
-    <span class="logo-rule"></span>
-  </a>
+<nav id="nav">
+  <a href="#" class="logo">W&nbsp;A&nbsp;L&nbsp;L<sup>®</sup></a>
   <ul>
     <li><a href="#featured">Properties</a></li>
-    <li><a href="#regions">Regions</a></li>
-    <li><a href="#agents">Specialists</a></li>
-    <li><a href="#">Journal</a></li>
+    <li><a href="#specialists">Specialists</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="https://instagram.com/wall.realestate" target="_blank">Instagram</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li><a href="#" style="color:var(--muted)">中文</a></li>
   </ul>
-  <a href="#" class="nav-cta">Request Valuation</a>
+  <a href="#contact" class="nav-cta">Enquire Now</a>
 </nav>
-
-
-<!-- ══════════════════════════════════════════
-     HERO — Mairangi Bay aerial (landing.jpg)
-══════════════════════════════════════════ -->
-<section class="hero">
-  <img class="hero-img"
-       src="images/hero.jpg"
-       alt="Mairangi Bay, Auckland North Shore — Premium coastal real estate">
-  <div class="hero-scrim"></div>
-
-  <div class="hero-body">
-    <h1 class="hero-h1">
-      Curators of New Zealand&rsquo;s Most Exclusive
-      <span class="luxury">Luxury</span>
-      Real Estate on Auckland&rsquo;s North Shore and Beyond
-    </h1>
-
-    <div class="hero-search">
-      <input class="hs-input" type="text" placeholder="Region, suburb, address or property ID&hellip;">
-      <button class="hs-btn">Search</button>
-    </div>
-
-    <div class="hero-btns">
-      <a href="#featured" class="btn-teal">Explore Properties</a>
-      <a href="#agents"   class="btn-ghost-white">Request Private Viewing</a>
-    </div>
+<section id="hero">
+  <div class="hero-photo">
+    <img src="images/DJI_20260224122313_0605_D-scaled.jpg" alt="WALL Real Estate Herne Bay" loading="eager"/>
+    <div class="hero-photo-ov"></div>
   </div>
-
-  <div class="hero-stats">
-    <div class="h-stat"><div class="hs-val">40+</div><div class="hs-lbl">Years of Expertise</div></div>
-    <div class="h-stat"><div class="hs-val">12</div><div class="hs-lbl">Specialist Teams</div></div>
-    <div class="h-stat"><div class="hs-val">NZ#1</div><div class="hs-lbl">Milne Team 2025</div></div>
-    <div class="h-stat"><div class="hs-val">Private</div><div class="hs-lbl">Viewing Guaranteed</div></div>
+  <div class="hero-panel">
+    <p class="eyebrow">Auckland · Waiheke · International</p>
+    <h1 class="hero-h1">Homes Defined by<br><em>Exceptional Living</em></h1>
+    <p class="hero-sub">WALL specialises in Auckland's most extraordinary residential properties — from the waterfront enclaves of Herne Bay to the sun-drenched shores of Waiheke Island.</p>
+    <div class="hero-search"><input type="text" placeholder="Suburb, address or property type…"/><button>Search</button></div>
+    <div class="hero-btns">
+      <a href="#featured" class="btn-solid">Explore Properties</a>
+      <a href="#specialists" class="btn-ghost">Request Private Viewing</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><div class="hstat-n">35<span>+</span></div><div class="hstat-l">Years of Expertise</div></div>
+      <div class="hstat"><div class="hstat-n">NZ<span>#1</span></div><div class="hstat-l">Luxury Transactions</div></div>
+      <div class="hstat"><div class="hstat-n">$1B<span>+</span></div><div class="hstat-l">In Sales</div></div>
+      <div class="hstat"><div class="hstat-n">Private</div><div class="hstat-l">Viewings Available</div></div>
+    </div>
   </div>
 </section>
-
-<!-- ══════════════════════════════════════════
-     SOLD TICKER — implies transaction volume
-     Scrolls continuously, pauses on hover
-══════════════════════════════════════════ -->
-<div class="sold-ticker">
-  <div class="sold-ticker-inner" id="ticker">
-    <!-- Block repeated twice for seamless loop -->
-    <span class="ticker-item"><span class="t-dot"></span> SOLD &nbsp;·&nbsp; Mairangi Bay <span class="t-price">$4,200,000</span></span>
-    <span class="ticker-item"><span class="t-dot"></span> SOLD &nbsp;·&nbsp; Takapuna Beach <span class="t-price">$3,850,000</span></span>
-    <span class="ticker-item"><span class="t-dot"></span> SOLD &nbsp;·&nbsp; Devonport <span class="t-price">$2,975,000</span></span>
-    <span class="ticker-item"><span class="t-dot"></span> SOLD &nbsp;·&nbsp; Hauraki <span class="t-price">$5,100,000</span></span>
-    <span class="ticker-item"><span class="t-dot"></span> SOLD &nbsp;·&nbsp; Northcote Point <span class="t-price">$3,200,000</span></span>
-    <span class="ticker-item"><span class="t-dot"></span> SOLD &nbsp;·&nbsp; Birkenhead <span class="t-price">$2,450,000</span></span>
-    <span class="ticker-item"><span class="t-dot"></span> SOLD &nbsp;·&nbsp; Browns Bay <span class="t-price">$1,980,000</span></span>
-    <span class="ticker-item"><span class="t-dot"></span> SOLD &nbsp;·&nbsp; Castor Bay <span class="t-price">$3,600,000</span></span>
-    <span class="ticker-item"><span class="t-dot"></span> SOLD &nbsp;·&nbsp; Milford <span class="t-price">$4,750,000</span></span>
-    <span class="ticker-item"><span class="t-dot"></span> SOLD &nbsp;·&nbsp; Snells Beach <span class="t-price">$2,800,000</span></span>
-    <!-- Duplicate for seamless scroll -->
-    <span class="ticker-item"><span class="t-dot"></span> SOLD &nbsp;·&nbsp; Mairangi Bay <span class="t-price">$4,200,000</span></span>
-    <span class="ticker-item"><span class="t-dot"></span> SOLD &nbsp;·&nbsp; Takapuna Beach <span class="t-price">$3,850,000</span></span>
-    <span class="ticker-item"><span class="t-dot"></span> SOLD &nbsp;·&nbsp; Devonport <span class="t-price">$2,975,000</span></span>
-    <span class="ticker-item"><span class="t-dot"></span> SOLD &nbsp;·&nbsp; Hauraki <span class="t-price">$5,100,000</span></span>
-    <span class="ticker-item"><span class="t-dot"></span> SOLD &nbsp;·&nbsp; Northcote Point <span class="t-price">$3,200,000</span></span>
-    <span class="ticker-item"><span class="t-dot"></span> SOLD &nbsp;·&nbsp; Birkenhead <span class="t-price">$2,450,000</span></span>
-    <span class="ticker-item"><span class="t-dot"></span> SOLD &nbsp;·&nbsp; Browns Bay <span class="t-price">$1,980,000</span></span>
-    <span class="ticker-item"><span class="t-dot"></span> SOLD &nbsp;·&nbsp; Castor Bay <span class="t-price">$3,600,000</span></span>
-    <span class="ticker-item"><span class="t-dot"></span> SOLD &nbsp;·&nbsp; Milford <span class="t-price">$4,750,000</span></span>
-    <span class="ticker-item"><span class="t-dot"></span> SOLD &nbsp;·&nbsp; Snells Beach <span class="t-price">$2,800,000</span></span>
+<div id="ticker">
+  <div class="tick-inner">
+    <div class="ti"><span class="td"></span>SOLD — Herne Bay $22,500,000</div><div class="ti"><span class="td"></span>SOLD — Remuera $8,200,000</div><div class="ti"><span class="td"></span>SOLD — Waiheke Island $5,600,000</div><div class="ti"><span class="td"></span>SOLD — Saint Heliers $6,750,000</div><div class="ti"><span class="td"></span>SOLD — Ponsonby $4,900,000</div><div class="ti"><span class="td"></span>SOLD — Kohimarama $9,100,000</div><div class="ti"><span class="td"></span>SOLD — St Marys Bay $7,400,000</div><div class="ti"><span class="td"></span>SOLD — Devonport $4,200,000</div>
+    <div class="ti"><span class="td"></span>SOLD — Herne Bay $22,500,000</div><div class="ti"><span class="td"></span>SOLD — Remuera $8,200,000</div><div class="ti"><span class="td"></span>SOLD — Waiheke Island $5,600,000</div><div class="ti"><span class="td"></span>SOLD — Saint Heliers $6,750,000</div><div class="ti"><span class="td"></span>SOLD — Ponsonby $4,900,000</div><div class="ti"><span class="td"></span>SOLD — Kohimarama $9,100,000</div><div class="ti"><span class="td"></span>SOLD — St Marys Bay $7,400,000</div><div class="ti"><span class="td"></span>SOLD — Devonport $4,200,000</div>
   </div>
 </div>
-
-<!-- ══════════════════════════════════════════
-     FEATURED PROPERTY — 21 Brighton Terrace
-     Main image: cinematic Ken Burns pan loop
-══════════════════════════════════════════ -->
-<section class="featured" id="featured">
+<section id="featured">
   <div class="feat-wrap">
-
-    <!-- Gallery column — cinematic panning image -->
-    <div class="feat-gallery">
-      <div class="feat-cinema-wrap">
-        <img class="feat-cinema-img"
-             src="images/feat.jpg"
-             alt="Open-plan living, lap pool and panoramic sea views — 21 Brighton Terrace, Mairangi Bay">
-        <div class="feat-cinema-grade"></div>
-      </div>
-
-      <div class="feat-badges">
-        <span class="badge badge-gold">Exclusive Listing</span>
-        <span class="badge badge-dark">Mairangi Bay &nbsp;·&nbsp; North Shore</span>
-      </div>
-
-      <button class="feat-count">&#9638; &nbsp;View All 19 Photos</button>
-
-      <div class="feat-strip">
-        <div class="feat-thumb"><img src="images/thumb1.jpg" alt="Terrace sea view"></div>
-        <div class="feat-thumb"><img src="images/thumb2.jpg" alt="Kitchen and pool"></div>
-        <div class="feat-thumb"><img src="images/thumb3.jpg" alt="Aerial view"></div>
-        <div class="feat-thumb"><img src="images/thumb4.jpg" alt="Living area"></div>
-        <div class="feat-thumb" style="position:relative;">
-          <img src="images/thumb5.jpg" alt="More photos">
-          <div class="thumb-more">+14 More</div>
-        </div>
+    <div class="feat-img">
+      <span class="feat-badge">For Sale</span>
+      <span class="feat-loc-tag">Herne Bay · Auckland</span>
+      <img src="images/A7307422-1-1024x683.jpg" alt="15 Cremorne Street" class="feat-photo"/>
+      <div class="thumbs">
+        <div class="thumb"><img src="images/L1070072-1024x683.jpg" alt=""/></div>
+        <div class="thumb"><img src="images/L1070098-1024x683.jpg" alt=""/></div>
+        <div class="thumb"><img src="images/L1070107-1024x683.jpg" alt=""/></div>
+        <div class="thumb"><img src="images/L1070149-1024x683.jpg" alt=""/></div>
+        <div class="thumb"><img src="images/L1070185-1024x685.jpg" alt=""/><div class="thumb-more">+19</div></div>
       </div>
     </div>
-
-    <!-- Info column -->
-    <div class="feat-info">
-      <div class="fi-eyebrow">Featured Residence &nbsp;·&nbsp; Mairangi Bay</div>
-      <h2 class="fi-title">Effortless Entertaining &amp;<br>Breathtaking Sea Views</h2>
-      <div class="fi-address">21 Brighton Terrace &nbsp;·&nbsp; Mairangi Bay &nbsp;·&nbsp; North Shore</div>
-
-      <p class="fi-desc">
-        An exquisite contemporary coastal residence capturing all-day sun and panoramic views to Rangitoto Island.
-        Open-plan living flows to the lap pool terrace — the epitome of seaside life, conceived for the art of
-        entertaining and the quiet pleasures of private coastal living.
-      </p>
-
-      <div class="specs">
-        <div class="spec">
-          <span class="spec-label">Bedrooms</span>
-          <span class="spec-val">3 <span class="spec-sub">+ ensuite</span></span>
-        </div>
-        <div class="spec">
-          <span class="spec-label">Bathrooms</span>
-          <span class="spec-val">3 <span class="spec-sub">+ guest wc</span></span>
-        </div>
-        <div class="spec">
-          <span class="spec-label">Garaging</span>
-          <span class="spec-val">2 <span class="spec-sub">internal access</span></span>
-        </div>
-        <div class="spec">
-          <span class="spec-label">Features</span>
-          <span class="spec-val" style="font-family:var(--sans);font-size:.82rem;font-weight:400;line-height:1.6;">
-            Lift &nbsp;·&nbsp; Lap Pool &nbsp;·&nbsp; Sea Views
-          </span>
-        </div>
+    <div class="feat-panel">
+      <p class="feat-ey">Featured Residence · Cremorne Street</p>
+      <h2 class="feat-title">Quality, Style &amp;<br><em>Scale Beyond Compare</em></h2>
+      <p class="feat-addr">15 Cremorne Street · Herne Bay · Auckland</p>
+      <p class="feat-desc">A Brent Hulena-designed 1,075sqm home on over 2,810sqm of prime North-West Herne Bay waterfront. Three levels including underground wine cellar, boat-shed and consented helicopter landings. A rare blend of peak architecture, prime position and total privacy.</p>
+      <div class="feat-specs">
+        <div class="fspec"><label>Bedrooms</label><p>4 <small>+ guesthouse 2</small></p></div>
+        <div class="fspec"><label>Bathrooms</label><p>9 <small>total</small></p></div>
+        <div class="fspec"><label>Helipad</label><p>Consented</p></div>
+        <div class="fspec"><label>Boat-shed</label><p>Deep Water</p></div>
       </div>
-
-      <div class="price-row">
-        <div>
-          <div class="price-label">Sale by Negotiation</div>
-          <div class="price-val">Price on Enquiry</div>
-        </div>
-        <div>
-          <div class="oh-label">Next Open Home</div>
-          <div class="oh-chip">Sunday 22 Feb &nbsp;·&nbsp; 10:00–10:30am</div>
-        </div>
-      </div>
-
-      <div class="feat-ctas">
-        <a href="#" class="btn-block-teal">Request Private Viewing</a>
-        <a href="#" class="btn-block-outline">Download Property Brochure</a>
-      </div>
-
-      <div class="agent-strip">
-        <img class="agent-strip-photo" src="images/robert.jpg" alt="Robert Milne">
-        <div>
-          <div class="as-name">Robert &amp; Richard Milne</div>
-          <div class="as-role">No. 1 Sales Team 2018–2025 &nbsp;·&nbsp; North Shore Specialists</div>
-        </div>
-        <div class="as-btns">
-          <a href="tel:+64220112494" class="as-btn" title="Call">&#9990;</a>
-          <a href="#" class="as-btn" title="WhatsApp">&#128172;</a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════════
-     FURTHER RESIDENCES COLLECTION
-     Images: takapuna.jpg / hauraki.jpg / snells.jpg
-══════════════════════════════════════════ -->
-<section style="background:var(--warm-white);border-top:1px solid var(--stone-mid);" id="regions">
-  <div class="collection">
-    <div class="section-header">
-      <div class="reveal">
-        <div class="eyebrow">Current Collection</div>
-        <h2 class="section-h2">Further Exceptional<br><em>Residences</em></h2>
-      </div>
-      <a href="#" class="view-all reveal d2">View All Properties &#8594;</a>
-    </div>
-
-    <div class="cards">
-      <!-- Card 1 — Takapuna -->
-      <div class="card reveal">
-        <div class="card-img-wrap">
-          <img class="card-img" src="images/takapuna.jpg" alt="Takapuna — luxury freestanding residence">
-          <img class="card-img-alt" src="images/thumb2.jpg" alt="Takapuna interior">
-          <div class="card-overlay"><div class="card-cta">Request Viewing</div></div>
-        </div>
-        <div class="card-body">
-          <div class="card-region">Takapuna &nbsp;·&nbsp; North Shore</div>
-          <div class="card-price">By Negotiation</div>
-          <div class="card-title">Freestanding Luxury</div>
-          <div class="card-address">Walk to Takapuna Beach &nbsp;·&nbsp; Freehold Title</div>
-          <div class="card-specs">
-            <span class="card-spec">4 bed</span>
-            <span class="card-spec">3 bath</span>
-            <span class="card-spec">2 garage</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 2 — Hauraki -->
-      <div class="card reveal d1">
-        <div class="card-img-wrap">
-          <img class="card-img" src="images/hauraki.jpg" alt="Hauraki — idyllic garden residence">
-          <img class="card-img-alt" src="images/thumb3.jpg" alt="Hauraki interior">
-          <div class="card-overlay"><div class="card-cta">Request Viewing</div></div>
-        </div>
-        <div class="card-body">
-          <div class="card-region">Hauraki &nbsp;·&nbsp; North Shore</div>
-          <div class="card-price">By Negotiation</div>
-          <div class="card-title">Idyllic Living</div>
-          <div class="card-address">Blue-chip Position &nbsp;·&nbsp; Hauraki Corner</div>
-          <div class="card-specs">
-            <span class="card-spec">5 bed</span>
-            <span class="card-spec">4 bath</span>
-            <span class="card-spec">Pool</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 3 — Snells Beach -->
-      <div class="card reveal d2">
-        <div class="card-img-wrap">
-          <img class="card-img" src="images/snells.jpg" alt="Snells Beach — coastal waterfront home">
-          <img class="card-img-alt" src="images/thumb4.jpg" alt="Snells Beach interior">
-          <div class="card-overlay"><div class="card-cta">Request Viewing</div></div>
-        </div>
-        <div class="card-body">
-          <div class="card-region">Snells Beach &nbsp;·&nbsp; Rodney</div>
-          <div class="card-price">Enquire</div>
-          <div class="card-title">Waterfront Mecca</div>
-          <div class="card-address">28 Schooner Ave &nbsp;·&nbsp; Coastal Masterpiece</div>
-          <div class="card-specs">
-            <span class="card-spec">5 bed</span>
-            <span class="card-spec">3 bath</span>
-            <span class="card-spec">Waterfront</span>
-          </div>
-        </div>
+      <p class="feat-pl">Sale Method</p>
+      <p class="feat-price">Deadline for Offers</p>
+      <p class="feat-dl"><strong>Thursday 2nd April 2026</strong><br>Price on Enquiry</p>
+      <a href="#contact" class="btn-solid" style="text-align:center;margin-bottom:22px">Request Private Viewing</a>
+      <div class="agent-row">
+        <div><p class="agent-n">Graham Wall</p><div class="abtns"><a href="tel:+64219513681" class="abtn">✆ +64 21 951 368</a><a href="https://wa.me/64219513681" class="abtn">WhatsApp</a></div></div>
+        <div><p class="agent-n">Ollie Wall</p><div class="abtns"><a href="tel:+64215205141" class="abtn">✆ +64 21 520 514</a><a href="https://wa.me/64215205141" class="abtn">WhatsApp</a></div></div>
       </div>
     </div>
   </div>
 </section>
-
-
-<!-- ══════════════════════════════════════════
-     SPECIALISTS — Robert & Richard Milne
-══════════════════════════════════════════ -->
-<div class="gold-divider"></div>
-<section class="agents" id="agents">
-  <div class="agents-inner">
-    <div class="reveal">
-      <div class="eyebrow">Our Specialists</div>
-      <h2 class="section-h2" style="max-width:480px;">The People Behind<br><em>New Zealand&rsquo;s Finest Sales</em></h2>
+<section id="properties">
+  <div class="sw">
+    <div class="sec-head rv"><div><p class="sec-lbl">Current Collection</p><h2 class="sec-title">Further Exceptional<br><em>Residences</em></h2></div><a href="https://wallrealestate.co.nz/properties/" target="_blank" class="view-all-lnk">View All Properties →</a></div>
+    <div class="filters rv"><button class="filt on">All</button><button class="filt">Auckland</button><button class="filt">Waiheke</button><button class="filt">International</button></div>
+    <div class="pgrid">
+      <div class="pc rv"><img src="images/DJI_20260224123956_0638_D-1024x768.jpg" alt="15 Cremorne Street" class="pimg"/><div class="pov"></div><div class="pinfo"><span class="ptag">For Sale</span><p class="psub">Herne Bay · Auckland</p><h3 class="pname">15 Cremorne Street</h3><div class="pdets"><div class="pd"><strong>6</strong>Bed</div><div class="pd"><strong>9</strong>Bath</div><div class="pd"><strong>Helipad</strong>Feature</div></div></div></div>
+      <div class="pc rv d1"><img src="images/L1070305-1024x683.jpg" alt="Waiheke" class="pimg"/><div class="pov"></div><div class="pinfo"><span class="ptag">For Sale</span><p class="psub">Waiheke Island</p><h3 class="pname">Clifftop Sanctuary</h3><div class="pdets"><div class="pd"><strong>5</strong>Bed</div><div class="pd"><strong>4</strong>Bath</div><div class="pd"><strong>Infinity</strong>Pool</div></div></div></div>
+      <div class="pc rv d2"><img src="images/L1070359-1024x683.jpg" alt="Saint Heliers" class="pimg"/><div class="pov"></div><div class="pinfo"><span class="ptag">For Sale</span><p class="psub">Saint Heliers</p><h3 class="pname">Coastal Masterpiece</h3><div class="pdets"><div class="pd"><strong>4</strong>Bed</div><div class="pd"><strong>3</strong>Bath</div><div class="pd"><strong>Beach</strong>Access</div></div></div></div>
+      <div class="pc rv"><img src="images/L1070263-1024x683.jpg" alt="St Marys Bay" class="pimg"/><div class="pov"></div><div class="pinfo"><span class="ptag">For Sale</span><p class="psub">St Marys Bay</p><h3 class="pname">79F St Marys Road</h3><div class="pdets"><div class="pd"><strong>3</strong>Bed</div><div class="pd"><strong>2</strong>Bath</div><div class="pd"><strong>Harbour</strong>Views</div></div></div></div>
+      <div class="pc rv d1"><img src="images/L1070329-1024x683.jpg" alt="Waiheke Waterfront" class="pimg"/><div class="pov"></div><div class="pinfo"><span class="ptag">For Sale</span><p class="psub">Waiheke Island</p><h3 class="pname">Waterfront Retreat</h3><div class="pdets"><div class="pd"><strong>4</strong>Bed</div><div class="pd"><strong>3</strong>Bath</div><div class="pd"><strong>Private</strong>Jetty</div></div></div></div>
     </div>
-
-    <div class="agents-grid">
-      <!-- Robert -->
-      <div class="agent-card reveal">
-        <div class="agent-photo-col">
-          <img class="agent-photo" src="images/robert.jpg" alt="Robert Milne — Licensed Real Estate Salesperson">
+    <div class="pva rv"><a href="https://wallrealestate.co.nz/properties/" target="_blank" class="btn-ghost" style="display:inline-block;padding:13px 42px">View All Listings →</a></div>
+  </div>
+</section>
+<section id="specialists">
+  <div class="sw">
+    <div class="sec-head rv"><div><p class="sec-lbl">Our Specialists</p><h2 class="sec-title">The People Behind<br><em>Auckland's Finest Sales</em></h2></div></div>
+    <div class="sgrid">
+      <div class="scard rv"><img src="images/Andrew.jpg" alt="Andrew Wall" class="sphoto"/><div class="sbody"><div><span class="sbadge">Director &amp; Licensed Salesperson</span><p class="sname">Andrew Wall</p><p class="srole">Co-Founder · WALL Real Estate</p><div class="sareas"><span class="sarea">Herne Bay</span><span class="sarea">Remuera</span><span class="sarea">Ponsonby</span><span class="sarea">Waterfront</span></div></div><div class="sbtns"><a href="tel:+64215205081" class="sbtn r">✆ +64 21 520 508</a><a href="https://wa.me/64215205081" class="sbtn">WhatsApp</a><a href="mailto:andrew@wallrealestate.co.nz" class="sbtn">Email</a></div></div></div>
+      <div class="scard rv d1"><img src="images/Graham.jpg" alt="Graham Wall" class="sphoto"/><div class="sbody"><div><span class="sbadge">Director &amp; Licensed Salesperson</span><p class="sname">Graham Wall</p><p class="srole">Co-Founder · WALL Real Estate</p><div class="sareas"><span class="sarea">Waiheke Island</span><span class="sarea">Saint Heliers</span><span class="sarea">Private Sales</span></div></div><div class="sbtns"><a href="tel:+64219513681" class="sbtn r">✆ +64 21 951 368</a><a href="https://wa.me/64219513681" class="sbtn">WhatsApp</a><a href="mailto:graham@wallrealestate.co.nz" class="sbtn">Email</a></div></div></div>
+      <div class="scard rv d1"><img src="images/Ollie.jpg" alt="Ollie Wall" class="sphoto"/><div class="sbody"><div><span class="sbadge">Licensed Salesperson</span><p class="sname">Ollie Wall</p><p class="srole">Residential Specialist</p><div class="sareas"><span class="sarea">Herne Bay</span><span class="sarea">St Marys Bay</span><span class="sarea">Parnell</span></div></div><div class="sbtns"><a href="tel:+64215205141" class="sbtn r">✆ +64 21 520 514</a><a href="https://wa.me/64215205141" class="sbtn">WhatsApp</a><a href="mailto:ollie@wallrealestate.co.nz" class="sbtn">Email</a></div></div></div>
+      <div class="scard rv d2"><img src="images/I4A0570-5-783x1024.jpg" alt="Fliss Grennell" class="sphoto"/><div class="sbody"><div><span class="sbadge">Licensed Salesperson</span><p class="sname">Fliss Grennell</p><p class="srole">Residential Specialist</p><div class="sareas"><span class="sarea">Auckland</span><span class="sarea">Coastal Homes</span></div></div><div class="sbtns"><a href="tel:+64210446009" class="sbtn r">✆ +64 21 044 6009</a><a href="https://wa.me/64210446009" class="sbtn">WhatsApp</a><a href="mailto:fliss@wallrealestate.co.nz" class="sbtn">Email</a></div></div></div>
+    </div>
+  </div>
+</section>
+<section id="about">
+  <div class="sw">
+    <div class="agrid">
+      <div class="aimg-wrap rv"><img src="images/L1070236-1024x682.jpg" alt="WALL estate" class="aimg"/><img src="images/L1070221-1024x683.jpg" alt="Pool" class="aimg-accent"/></div>
+      <div class="rv d1">
+        <p class="sec-lbl">About WALL</p>
+        <h2 class="sec-title">People, Places &amp;<br><em>Design We Admire</em></h2>
+        <p class="aquote">"Specialists in Auckland's finest <em>waterfront, lifestyle,</em> and executive properties — for over three decades."</p>
+        <p class="abody">As an independent agency, WALL Real Estate brings an unparalleled depth of knowledge to Auckland's premium residential market. Our team's shared passion for architecture, design, and the unique character of each neighbourhood allows us to match extraordinary properties with buyers who truly appreciate them.</p>
+        <div class="astats">
+          <div class="astat"><div class="astat-n">35<span style="font-size:17px">+</span></div><div class="astat-l">Years of Expertise</div></div>
+          <div class="astat"><div class="astat-n">$1B<span style="font-size:17px">+</span></div><div class="astat-l">In Sales</div></div>
+          <div class="astat"><div class="astat-n">NZ#1</div><div class="astat-l">Luxury Transactions</div></div>
+          <div class="astat"><div class="astat-n">100%</div><div class="astat-l">Independent</div></div>
         </div>
-        <div class="agent-body">
-          <div>
-            <div class="agent-award">No. 1 Salesperson 2024–2025 &nbsp;·&nbsp; Premium Group NZ</div>
-            <div class="agent-name">Robert Milne</div>
-            <div class="agent-role-title">Licensed Real Estate Salesperson</div>
-            <p class="agent-bio">
-              Robert has established himself as Premium&rsquo;s standout performer, consistently achieving record results
-              across North Shore&rsquo;s most sought-after coastal and lifestyle properties. His intimate market knowledge,
-              combined with a client-first philosophy, makes him the trusted choice for vendors seeking discretion and
-              maximum value.
-            </p>
-            <div class="agent-tags">
-              <span class="agent-tag">Mairangi Bay</span>
-              <span class="agent-tag">Takapuna</span>
-              <span class="agent-tag">Hauraki</span>
-              <span class="agent-tag">Coastal Luxury</span>
-            </div>
-          </div>
-          <div class="agent-contacts">
-            <a href="tel:+64220112494" class="a-btn a-primary">&#9990; 022 011 2494</a>
-            <a href="#" class="a-btn a-secondary">&#128172; WhatsApp</a>
-            <a href="/cdn-cgi/l/email-protection#affdc0cdcadddbe2c6c3c1caefdfddcac2c6dac281ccc081c1d5" class="a-btn a-secondary">&#9993; Email</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Richard -->
-      <div class="agent-card reveal d2">
-        <div class="agent-photo-col">
-          <img class="agent-photo" src="images/richard.jpg" alt="Richard Milne — Licensed Real Estate Salesperson">
-        </div>
-        <div class="agent-body">
-          <div>
-            <div class="agent-award">No. 1 Salesperson 2012, 2016, 2018–2024 &nbsp;·&nbsp; No. 1 Team</div>
-            <div class="agent-name">Richard Milne</div>
-            <div class="agent-role-title">Licensed Real Estate Salesperson</div>
-            <p class="agent-bio">
-              With over a decade of consecutive award-winning performance, Richard brings unrivalled experience to
-              New Zealand&rsquo;s premium residential market. Long-standing relationships across North Shore&rsquo;s most
-              discerning vendor community reflect a career built on absolute integrity and results that speak with
-              quiet authority.
-            </p>
-            <div class="agent-tags">
-              <span class="agent-tag">North Shore Coastal</span>
-              <span class="agent-tag">Lifestyle Estates</span>
-              <span class="agent-tag">Private Sales</span>
-            </div>
-          </div>
-          <div class="agent-contacts">
-            <a href="tel:+64217706110" class="a-btn a-primary">&#9990; 021 770 611</a>
-            <a href="#" class="a-btn a-secondary">&#128172; WhatsApp</a>
-            <a href="/cdn-cgi/l/email-protection#16627e737b7f7a787365566664737b7f637b38757938786c" class="a-btn a-secondary">&#9993; Email</a>
-          </div>
-        </div>
+        <a href="#specialists" class="btn-solid" style="display:inline-block;padding:13px 36px;margin-top:26px">Meet Our Specialists</a>
       </div>
     </div>
   </div>
 </section>
-
-
-<!-- ══════════════════════════════════════════
-     ABOUT PREMIUM
-══════════════════════════════════════════ -->
-<section style="background:var(--warm-white);border-top:1px solid var(--stone-mid);">
-  <div class="about">
-    <div class="reveal">
-      <div class="eyebrow">About Premium</div>
-      <div class="about-rule"></div>
-      <h2 class="about-quote">
-        &ldquo;Specialists in New Zealand&rsquo;s finest <em>coastal, lifestyle,</em> and executive properties&rdquo;
-      </h2>
-      <p class="about-body">
-        For over four decades, Premium Real Estate has represented the homes that define New Zealand living at its
-        most exceptional — from the coastal cliffs of the North Shore to the vineyard estates of Matakana, from
-        Waiheke Island retreats to Devonport heritage villas. Our approach is unhurried, our knowledge unmatched,
-        our commitment absolute.
-      </p>
-      <a href="#agents" class="btn-teal">Meet Our Specialists</a>
-    </div>
-
-    <div class="about-stats reveal d2">
-      <div class="a-stat">
-        <div class="a-num"><span class="counter" data-target="40">0</span>+</div>
-        <div class="a-desc">
-          <strong>Years of expertise</strong>
-          Four decades representing New Zealand&rsquo;s finest coastal and lifestyle properties.
-        </div>
-      </div>
-      <div class="a-stat">
-        <div class="a-num"><span class="counter" data-target="12">0</span></div>
-        <div class="a-desc">
-          <strong>Regional specialist teams</strong>
-          North Shore to Waiheke Island, Matakana Coast to Mangawhai.
-        </div>
-      </div>
-      <div class="a-stat">
-        <div class="a-num" style="font-size:2.2rem;">NZ#1</div>
-        <div class="a-desc">
-          <strong>Milne Team 2018–2025</strong>
-          Consistently New Zealand&rsquo;s top-performing premium real estate team.
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════════
-     FOOTER — deep navy, Sotheby's standard
-══════════════════════════════════════════ -->
-<footer class="footer" id="contact">
-
-  <div class="footer-brand-bar">
-    <div class="footer-brand-inner">
+<div id="break">
+  <div class="break-bg"></div>
+  <div class="break-ov"><p class="break-txt rv">"We don't just sell houses — we place people inside <em>the lives they deserve to live.</em>"</p></div>
+</div>
+<section id="contact">
+  <div class="sw">
+    <div class="cgrid">
       <div>
-        <a href="#" class="logo-mark logo-footer">
-          <span class="logo-word">Premium<sup>®</sup></span>
-          <span class="logo-rule"></span>
-        </a>
-        <p class="f-tagline">New Zealand&rsquo;s finest coastal, lifestyle, and executive properties since 1984.</p>
-        <div class="f-contact">
-          <a href="tel:+6494916000">(+64 9) 916 6000</a>
-          <a href="/cdn-cgi/l/email-protection#afc6c1c9c0efdfddcac2c6dac281ccc081c1d5"><span class="__cf_email__" data-cfemail="cca5a2aaa38cbcbea9a1a5b9a1e2afa3e2a2b6">[email&#160;protected]</span></a>
-          <span>Takapuna &nbsp;·&nbsp; North Shore &nbsp;·&nbsp; Auckland</span>
+        <p class="sec-lbl rv">Get In Touch</p>
+        <h2 class="sec-title rv">Begin Your<br><em>Property Journey</em></h2>
+        <p style="font-size:12.5px;color:var(--muted);line-height:1.85;margin-top:12px" class="rv">Whether you're ready to buy, sell, or simply wish to explore what's possible — our specialists are available for a confidential conversation.</p>
+        <div class="cform rv">
+          <div class="crow"><div class="field"><label>First Name</label><input type="text" placeholder="Your first name"/></div><div class="field"><label>Last Name</label><input type="text" placeholder="Your last name"/></div></div>
+          <div class="field"><label>Email Address</label><input type="email" placeholder="your@email.com"/></div>
+          <div class="field"><label>Phone Number</label><input type="tel" placeholder="+64…"/></div>
+          <div class="field"><label>Your Interest</label><select><option value="">Select…</option><option>Buying a property</option><option>Selling my property</option><option>Request a valuation</option><option>Private viewing</option><option>General enquiry</option></select></div>
+          <div class="field"><label>Message</label><textarea placeholder="Tell us more…"></textarea></div>
+          <button class="btn-solid" style="align-self:flex-start;padding:13px 38px;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase">Submit Enquiry</button>
         </div>
-        <div class="f-socials">
-          <a href="#" class="fsoc" title="YouTube">&#9654;</a>
-          <a href="#" class="fsoc" title="Instagram">&#9711;</a>
-          <a href="#" class="fsoc" title="Facebook">f</a>
-          <a href="#" class="fsoc" title="LinkedIn">in</a>
-          <a href="#" class="fsoc" title="Pinterest">P</a>
+      </div>
+      <div>
+        <div class="cdets rv d1">
+          <div class="cdet"><div class="cico">📞</div><div class="ctxt"><label>Andrew Wall</label><a href="tel:+64215205081">+64 21 520 508</a></div></div>
+          <div class="cdet"><div class="cico">📞</div><div class="ctxt"><label>Graham Wall</label><a href="tel:+64219513681">+64 21 951 368</a></div></div>
+          <div class="cdet"><div class="cico">📞</div><div class="ctxt"><label>Ollie Wall</label><a href="tel:+64215205141">+64 21 520 514</a></div></div>
+          <div class="cdet"><div class="cico">✉️</div><div class="ctxt"><label>General Enquiries</label><a href="mailto:info@wallrealestate.co.nz">info@wallrealestate.co.nz</a></div></div>
+          <div class="cdet"><div class="cico">📷</div><div class="ctxt"><label>Instagram</label><a href="https://instagram.com/wall.realestate" target="_blank">@wall.realestate</a></div></div>
+          <div class="cdet"><div class="cico">🌐</div><div class="ctxt"><label>Website</label><a href="https://wallrealestate.co.nz" target="_blank">wallrealestate.co.nz</a></div></div>
         </div>
       </div>
     </div>
   </div>
-
-  <div class="footer-main">
-    <div>
-      <div class="fn-head">Properties</div>
-      <ul class="fn-list">
-        <li><a href="#">All Listings</a></li>
-        <li><a href="#">Coastal Homes</a></li>
-        <li><a href="#">Lifestyle Estates</a></li>
-        <li><a href="#">Executive Residences</a></li>
-        <li><a href="#">Apartments</a></li>
-        <li><a href="#">New Developments</a></li>
-        <li><a href="#">Executive Rentals</a></li>
-        <li><a href="#">Recently Sold</a></li>
-        <li><a href="#">Open Homes</a></li>
-      </ul>
+</section>
+<footer id="footer">
+  <div class="sw">
+    <div class="ftop">
+      <div>
+        <a href="#" class="flogo">W&nbsp;A&nbsp;L&nbsp;L<sup style="font-size:8px">®</sup></a>
+        <p class="ftag">Auckland's premier luxury real estate specialists.<br>Herne Bay · Waiheke Island · Auckland · International</p>
+        <div class="social"><a href="https://instagram.com/wall.realestate" target="_blank">◯</a><a href="#">f</a><a href="#">in</a><a href="#">▶</a><a href="#">微</a></div>
+      </div>
+      <div class="fcol"><h4>Properties</h4><ul><li><a href="#">All Listings</a></li><li><a href="#">Auckland</a></li><li><a href="#">Waiheke Island</a></li><li><a href="#">International</a></li><li><a href="#">Recently Sold</a></li></ul></div>
+      <div class="fcol"><h4>Services</h4><ul><li><a href="#">Request Valuation</a></li><li><a href="#">Buyer's Guide</a></li><li><a href="#">Seller's Guide</a></li><li><a href="#">Private Viewings</a></li><li><a href="#">Press</a></li></ul></div>
+      <div class="fcol"><h4>Company</h4><ul><li><a href="#">About WALL</a></li><li><a href="#">Our Specialists</a></li><li><a href="#">Contact</a></li><li><a href="#">中文</a></li></ul></div>
     </div>
-    <div>
-      <div class="fn-head">Regions</div>
-      <ul class="fn-list">
-        <li><a href="#">North Shore Coastal</a></li>
-        <li><a href="#">Takapuna</a></li>
-        <li><a href="#">Devonport</a></li>
-        <li><a href="#">Northcote &amp; The Points</a></li>
-        <li><a href="#">Hibiscus Coast</a></li>
-        <li><a href="#">Rodney &amp; Matakana</a></li>
-        <li><a href="#">Waiheke Island</a></li>
-        <li><a href="#">Mangawhai</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="fn-head">Services</div>
-      <ul class="fn-list">
-        <li><a href="#">Request Valuation</a></li>
-        <li><a href="#">Buying Guide</a></li>
-        <li><a href="#">Selling Guide</a></li>
-        <li><a href="#">Executive Rentals</a></li>
-        <li><a href="#">Franchise Services</a></li>
-        <li><a href="#">Careers</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="fn-head">Company</div>
-      <ul class="fn-list">
-        <li><a href="#">About Premium</a></li>
-        <li><a href="#">Our Specialists</a></li>
-        <li><a href="#">Journal</a></li>
-        <li><a href="#">In the News</a></li>
-        <li><a href="#">About Auckland &amp; NZ</a></li>
-        <li><a href="#">Franchise Opportunities</a></li>
-      </ul>
-    </div>
+    <div class="fbot"><p>© 2026 WALL Real Estate · All offices licensed under the Real Estate Agents Act 2008</p><div style="display:flex;gap:18px"><a href="#">Privacy Policy</a><a href="#">Disclaimer</a><a href="#">Anti-Money Laundering</a></div></div>
   </div>
-
-  <div class="footer-bottom">
-    <div class="f-legal">&#169; 2026 Premium Real Estate Group &nbsp;·&nbsp; All offices licensed under the Real Estate Agents Act 2008</div>
-    <div class="f-legal-links">
-      <a href="#">Privacy Policy</a>
-      <a href="#">Disclaimer</a>
-      <a href="#">Anti-Money Laundering</a>
-      <a href="#">Code of Conduct</a>
-    </div>
-  </div>
-
 </footer>
-
-
-<!-- ══════════════════════════════════════════
-     CONCIERGE CHATBOT
-══════════════════════════════════════════ -->
-<button class="concierge-btn" id="concierge-btn" onclick="toggleChat()" aria-label="Open Premium Concierge">
-  <svg viewBox="0 0 24 24">
-    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-  </svg>
-  <div class="c-badge" id="c-badge">1</div>
+<button id="cbtn" title="WALL AI Concierge">
+  <div class="cpulse"></div>
+  <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
 </button>
-
-<div class="concierge-panel" id="concierge-panel">
-  <div class="cp-header">
-    <div class="cp-avatar">P</div>
-    <div>
-      <div class="cp-name">Premium Concierge</div>
-      <div class="cp-status"><span class="cp-dot"></span> Available now</div>
-    </div>
-    <button class="cp-close" onclick="toggleChat()">&#10005;</button>
+<div id="chat">
+  <div class="chead">
+    <div class="cav"><img src="images/Andrew.jpg" alt="WALL Concierge"/></div>
+    <div><p class="cname">WALL Concierge</p><p class="cstatus"><span class="sdot"></span>Available now</p></div>
+    <span class="cx" id="cx">✕</span>
   </div>
-
-  <div class="cp-messages" id="cp-msgs">
-    <div>
-      <div class="cp-msg-bubble">
-        Welcome to Premium Real Estate. I&rsquo;m here to help you find exceptional properties across New Zealand&rsquo;s North Shore and beyond. How can I assist you today?
-      </div>
-      <div class="cp-msg-time">Just now</div>
-    </div>
+  <div class="cmsgs" id="cmsgs">
+    <div class="msg a"><div class="bbl">Good afternoon. Welcome to WALL Real Estate — Auckland's specialists in extraordinary residential property. How may I assist you today?</div><div class="mtime">Just now</div></div>
   </div>
-
-  <div class="cp-chips">
-    <button class="cp-chip" onclick="sendChip(this)">Book a viewing</button>
-    <button class="cp-chip" onclick="sendChip(this)">Coastal properties</button>
-    <button class="cp-chip" onclick="sendChip(this)">Request valuation</button>
-    <button class="cp-chip" onclick="sendChip(this)">Speak to an agent</button>
+  <div class="qrs" id="qrs">
+    <button onclick="csend('Properties for sale')">Properties for sale</button>
+    <button onclick="csend('Request a valuation')">Request valuation</button>
+    <button onclick="csend('Book a private viewing')">Book a viewing</button>
+    <button onclick="csend('Speak to a specialist')">Speak to specialist</button>
   </div>
-
-  <div class="cp-input-row">
-    <input class="cp-input" id="cp-in" type="text" placeholder="Ask about our properties&hellip;">
-    <button class="cp-sen
+  <div class="cinrow"><input type="text" id="cin" placeholder="Type your message…" autocomplete="off"/><button id="csend-btn">➤</button></div>
+  <div class="cfoot">WALL Real Estate · Auckland, New Zealand</div>
+</div>
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60));
+const rvs=document.querySelectorAll('.rv');
+const ro=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');ro.unobserve(e.target)}})},{threshold:.12});
+rvs.forEach(el=>ro.observe(el));
+document.querySelectorAll('.filt').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.filt').forEach(x=>x.classList.remove('on'));b.classList.add('on')}));
+const cbtn=document.getElementById('cbtn'),chat=document.getElementById('chat'),cx=document.getElementById('cx'),cmsgs=document.getElementById('cmsgs'),cin=document.getElementById('cin'),qrs=document.getElementById('qrs');
+let hist=[];
+cbtn.addEventListener('click',()=>chat.classList.toggle('open'));
+cx.addEventListener('click',()=>chat.classList.remove('open'));
+function ctime(){return new Date().toLocaleTimeString('en-NZ',{hour:'2-digit',minute:'2-digit'})}
+function addm(r,t){const d=document.createElement('div');d.className='msg '+r;d.innerHTML='<div class="bbl">'+t+'</div><div class="mtime">'+ctime()+'</div>';cmsgs.appendChild(d);cmsgs.scrollTop=cmsgs.scrollHeight}
+function showtyp(){const d=document.createElement('div');d.className='msg a';d.id='typ';d.innerHTML='<div class="typ"><span></span><span></span><span></span></div>';cmsgs.appendChild(d);cmsgs.scrollTop=cmsgs.scrollHeight}
+function hidetyp(){const e=document.getElementById('typ');if(e)e.remove()}
+async function csend(t){
+  if(!t||!t.trim())return;
+  addm('u',t);qrs.style.display='none';cin.value='';
+  hist.push({role:'user',content:t});showtyp();
+  try{
+    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:'You are the WALL Real Estate AI Concierge. WALL is an independent boutique luxury agency in Auckland. Specialists: Andrew Wall (+64 21 520 508), Graham Wall (+64 21 951 368), Ollie Wall (+64 21 520 514), Fliss Grennell (+64 21 044 6009). Be concise, warm and helpful. Direct serious enquiries to the team.',messages:hist})});
+    const data=await r.json();
+    const reply=data.content?.[0]?.text||'Please contact Andrew Wall on +64 21 520 508.';
+    hidetyp();hist.push({role:'assistant',content:reply});addm('a',reply);
+  }catch(e){hidetyp();addm('a','Please contact Andrew Wall on +64 21 520 508 or andrew@wallrealestate.co.nz.');}
+}
+document.getElementById('csend-btn').addEventListener('click',()=>csend(cin.value));
+cin.addEventListener('keypress',e=>{if(e.key==='Enter')csend(cin.value)});
+</script>
+</body>
+</html>
