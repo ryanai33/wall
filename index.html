@@ -48,12 +48,12 @@ nav ul a:hover{color:var(--text)}nav ul a:hover::after{transform:scaleX(1)}
 .hero-search input{flex:1;background:rgba(255,255,255,.06);border:1px solid var(--border);border-right:none;color:var(--text);font-family:var(--sans);font-size:12px;font-weight:300;padding:12px 16px;outline:none;transition:border-color .25s}
 .hero-search input::placeholder{color:var(--muted)}
 .hero-search input:focus{border-color:rgba(181,40,31,.5)}
-.hero-search button{background:var(--red);color:#fff;font-size:9.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:12px 20px;transition:background .2s}
+.hero-search button{background:var(--red);color:#fff;font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:12px 20px;transition:background .2s}
 .hero-search button:hover{background:var(--red-h)}
 .hero-btns{display:flex;flex-direction:column;gap:10px;margin-top:16px;opacity:0;transform:translateY(14px);animation:fUp .9s 1.15s var(--ease) forwards}
-.btn-solid{display:block;padding:13px 28px;text-align:center;background:var(--red);color:#fff;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;transition:background .25s}
+.btn-solid{display:block;padding:13px 28px;text-align:center;background:var(--red);color:#fff;font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;transition:background .25s}
 .btn-solid:hover{background:var(--red-h)}
-.btn-ghost{display:block;padding:12px 28px;text-align:center;border:1px solid rgba(255,255,255,.22);color:var(--text);font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;transition:all .25s}
+.btn-ghost{display:block;padding:12px 28px;text-align:center;border:1px solid rgba(255,255,255,.22);color:var(--text);font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;transition:all .25s}
 .btn-ghost:hover{border-color:var(--text);background:rgba(255,255,255,.05)}
 .hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:32px;background:var(--border);opacity:0;transform:translateY(14px);animation:fUp .9s 1.3s var(--ease) forwards}
 .hstat{background:var(--grey-d);padding:18px 20px}
@@ -67,10 +67,10 @@ nav ul a:hover{color:var(--text)}nav ul a:hover::after{transform:scaleX(1)}
 .td{width:3px;height:3px;background:rgba(255,255,255,.5);border-radius:50%;flex-shrink:0}
 @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 #featured{padding:0}
-.feat-wrap{display:grid;grid-template-columns:1fr 460px;min-height:82vh}
+.feat-wrap{display:grid;grid-template-columns:1fr 420px;min-height:82vh}
 .feat-img{position:relative;overflow:hidden;background:#111}
-.feat-badge{position:absolute;top:32px;left:32px;z-index:2;background:var(--red);color:#fff;font-size:9px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;padding:7px 16px}
-.feat-loc-tag{position:absolute;top:32px;left:160px;z-index:2;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.85);padding:7px 16px;background:rgba(0,0,0,.38);backdrop-filter:blur(6px)}
+.feat-badge{position:absolute;top:32px;left:32px;z-index:2;background:var(--red);color:#fff;font-size:11px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;padding:7px 16px}
+.feat-loc-tag{position:absolute;top:32px;left:160px;z-index:2;font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.85);padding:7px 16px;background:rgba(0,0,0,.38);backdrop-filter:blur(6px)}
 .feat-photo{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
 .feat-img:hover .feat-photo{transform:scale(1.03)}
 .thumbs{position:absolute;bottom:0;left:0;right:0;display:flex;gap:2px;height:90px;background:rgba(0,0,0,.6);padding:2px}
@@ -158,32 +158,32 @@ nav ul a:hover{color:var(--text)}nav ul a:hover::after{transform:scaleX(1)}
 .break-ov{position:absolute;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center}
 .break-txt{font-family:var(--serif);font-weight:300;font-size:clamp(24px,3.8vw,52px);line-height:1.25;text-align:center;max-width:780px;padding:0 44px}
 .break-txt em{font-style:italic;color:rgba(255,255,255,.7)}
-#contact{padding:88px 0;background:var(--grey-l)}
-.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:76px;align-items:start}
+#contact{padding:80px 0;background:var(--grey-l)}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:76px;align-items:start;max-width:1100px;margin:0 auto}
 .cform{display:flex;flex-direction:column;gap:13px;margin-top:32px}
 .crow{display:grid;grid-template-columns:1fr 1fr;gap:13px}
 .field{display:flex;flex-direction:column;gap:7px}
-.field label{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
-.field input,.field select,.field textarea{background:rgba(255,255,255,.05);border:1px solid var(--border);color:var(--text);font-family:var(--sans);font-size:13px;font-weight:300;padding:12px 14px;outline:none;transition:border-color .25s;-webkit-appearance:none}
+.field label{font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.field input,.field select,.field textarea{background:rgba(255,255,255,.05);border:1px solid var(--border);color:var(--text);font-family:var(--sans);font-size:14px;font-weight:300;padding:12px 14px;outline:none;transition:border-color .25s;-webkit-appearance:none}
 .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--red)}
 .field textarea{height:106px;resize:vertical}
-.cdets{margin-top:32px;display:flex;flex-direction:column;gap:16px}
+.cdets{display:flex;flex-direction:column;gap:14px;justify-content:center;padding-top:100px}
 .cdet{display:flex;gap:12px;align-items:flex-start}
-.cico{width:34px;height:34px;background:var(--red);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:14px;margin-top:2px}
-.ctxt label{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:2px}
-.ctxt a,.ctxt p{font-size:13px;color:var(--text);transition:color .2s}.ctxt a:hover{color:var(--red)}
+.cico{width:36px;height:36px;background:var(--red);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:15px;margin-top:2px}
+.ctxt label{font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:2px}
+.ctxt a,.ctxt p{font-size:14px;color:var(--text);transition:color .2s}.ctxt a:hover{color:var(--red)}
 #footer{background:var(--grey-d);padding:66px 0 34px;border-top:1px solid var(--border)}
 .ftop{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:52px;padding-bottom:44px;border-bottom:1px solid var(--border)}
 .flogo{font-family:var(--sans);font-weight:700;font-size:18px;letter-spacing:.32em;display:inline-flex;flex-direction:column;line-height:1}
 .flogo::after{content:'';display:block;height:2px;background:var(--red);width:100%;margin-top:5px}
-.ftag{font-size:12px;color:var(--muted);line-height:1.75;margin-top:16px;max-width:260px}
+.ftag{font-size:16px;color:rgba(245,242,238,.75);line-height:1.75;margin-top:16px;max-width:260px}
 .social{display:flex;gap:7px;margin-top:20px}
-.social a{width:31px;height:31px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--muted);transition:all .2s}
+.social a{width:34px;height:34px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:14px;color:rgba(245,242,238,.65);transition:all .2s}
 .social a:hover{border-color:var(--red);background:var(--red);color:#fff}
-.fcol h4{font-size:11px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--text);margin-bottom:16px}
-.fcol ul{list-style:none;display:flex;flex-direction:column;gap:8px}
-.fcol ul a{font-size:12px;color:var(--muted);transition:color .2s}.fcol ul a:hover{color:var(--red)}
-.fbot{display:flex;justify-content:space-between;align-items:center;padding-top:22px;font-size:12px;color:rgba(255,255,255,.3)}
+.fcol h4{font-size:13px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--text);margin-bottom:18px}
+.fcol ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.fcol ul a{font-size:15px;color:rgba(245,242,238,.75);transition:color .2s}.fcol ul a:hover{color:var(--red)}
+.fbot{display:flex;justify-content:space-between;align-items:center;padding-top:22px;font-size:14px;color:rgba(245,242,238,.45)}
 .fbot a{transition:color .2s}.fbot a:hover{color:var(--muted)}
 #cbtn{position:fixed;bottom:30px;right:30px;z-index:800;width:56px;height:56px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 26px rgba(0,0,0,.45);transition:transform .3s var(--ease),box-shadow .3s;cursor:pointer}
 #cbtn:hover{transform:scale(1.08);box-shadow:0 10px 36px rgba(181,40,31,.5)}
@@ -292,7 +292,7 @@ nav ul a:hover{color:var(--text)}nav ul a:hover::after{transform:scaleX(1)}
       <span class="feat-loc-tag">Herne Bay · Auckland</span>
       <img src="images/15cremorne.jpg" alt="15 Cremorne Street" class="feat-photo"/>
       <div class="thumbs">
-        <div class="thumb"><img src="images/L1070072-1024x683.jpg" alt=""/></div>
+        <div class="thumb"><img src="images/15cremorne.jpg" alt=""/></div>
         <div class="thumb"><img src="images/L1070098-1024x683.jpg" alt=""/></div>
         <div class="thumb"><img src="images/L1070107-1024x683.jpg" alt=""/></div>
         <div class="thumb"><img src="images/L1070149-1024x683.jpg" alt=""/></div>
@@ -330,7 +330,7 @@ nav ul a:hover{color:var(--text)}nav ul a:hover::after{transform:scaleX(1)}
       <div class="pc rv d1"><img src="images/waiheke.jpg" alt="Waiheke" class="pimg"/><div class="pov"></div><div class="pinfo"><span class="ptag">For Sale</span><p class="psub">Waiheke Island</p><h3 class="pname">Clifftop Sanctuary</h3><div class="pdets"><div class="pd"><strong>5</strong>Bed</div><div class="pd"><strong>4</strong>Bath</div><div class="pd"><strong>Infinity</strong>Pool</div></div></div></div>
       <div class="pc rv d2"><img src="images/L1070359-1024x683.jpg" alt="Saint Heliers" class="pimg"/><div class="pov"></div><div class="pinfo"><span class="ptag">For Sale</span><p class="psub">Saint Heliers</p><h3 class="pname">Coastal Masterpiece</h3><div class="pdets"><div class="pd"><strong>4</strong>Bed</div><div class="pd"><strong>3</strong>Bath</div><div class="pd"><strong>Beach</strong>Access</div></div></div></div>
       <div class="pc rv"><img src="images/L1070263-1024x683.jpg" alt="St Marys Bay" class="pimg"/><div class="pov"></div><div class="pinfo"><span class="ptag">For Sale</span><p class="psub">St Marys Bay</p><h3 class="pname">79F St Marys Road</h3><div class="pdets"><div class="pd"><strong>3</strong>Bed</div><div class="pd"><strong>2</strong>Bath</div><div class="pd"><strong>Harbour</strong>Views</div></div></div></div>
-      <div class="pc rv d1"><img src="images/L1070329-1024x683.jpg" alt="Waiheke Waterfront" class="pimg"/><div class="pov"></div><div class="pinfo"><span class="ptag">For Sale</span><p class="psub">Waiheke Island</p><h3 class="pname">Waterfront Retreat</h3><div class="pdets"><div class="pd"><strong>4</strong>Bed</div><div class="pd"><strong>3</strong>Bath</div><div class="pd"><strong>Private</strong>Jetty</div></div></div></div>
+      <div class="pc rv d1"><img src="images/waihekeretreat.jpg" alt="Waiheke Waterfront" class="pimg"/><div class="pov"></div><div class="pinfo"><span class="ptag">For Sale</span><p class="psub">Waiheke Island</p><h3 class="pname">Waterfront Retreat</h3><div class="pdets"><div class="pd"><strong>4</strong>Bed</div><div class="pd"><strong>3</strong>Bath</div><div class="pd"><strong>Private</strong>Jetty</div></div></div></div>
     </div>
     <div class="pva rv"><a href="https://wallrealestate.co.nz/properties/" target="_blank" class="btn-ghost" style="display:inline-block;padding:13px 42px">View All Listings →</a></div>
   </div>
