@@ -11,13 +11,13 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;-moz-osx-font-smoothing:grayscale}
 :root{
-  --grey:#3c3c3c;--grey-d:#333;--grey-l:#464646;
+  --grey:#2d2d2d;--grey-d:#272727;--grey-l:#383838;
   --red:#b5281f;--red-h:#cc2d22;
-  --text:#f5f2ee;--muted:rgba(245,242,238,.72);--border:rgba(255,255,255,.10);
+  --text:#f5f2ee;--muted:rgba(245,242,238,.75);--border:rgba(255,255,255,.11);
   --serif:'Cormorant Garamond',Georgia,serif;--sans:'Montserrat',sans-serif;
   --ease:cubic-bezier(0.16,1,0.3,1);--nav:72px;
 }
-body{background:var(--grey);color:var(--text);font-family:var(--sans);font-weight:300;font-size:15px;line-height:1.7;overflow-x:hidden;font-feature-settings:'kern' 1,'liga' 1,'calt' 1}
+body{background:var(--grey);color:var(--text);font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.7;overflow-x:hidden;font-feature-settings:'kern' 1,'liga' 1,'calt' 1}
 img{display:block;max-width:100%;image-rendering:-webkit-optimize-contrast}
 a{color:inherit;text-decoration:none}
 button{cursor:pointer;border:none;background:none;font-family:inherit}
@@ -40,10 +40,10 @@ nav ul a:hover{color:var(--text)}nav ul a:hover::after{transform:scaleX(1)}
 @keyframes hZoom{from{transform:scale(1.08)}to{transform:scale(1)}}
 .hero-photo-ov{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.06),rgba(0,0,0,.28))}
 .hero-panel{background:var(--grey-d);display:flex;flex-direction:column;justify-content:center;padding:0 52px;border-left:1px solid var(--border)}
-.eyebrow{font-size:11px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--red);margin-bottom:18px;opacity:0;transform:translateY(14px);animation:fUp .8s .5s var(--ease) forwards}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--red);margin-bottom:18px;white-space:nowrap;opacity:0;transform:translateY(14px);animation:fUp .8s .5s var(--ease) forwards}
 .hero-h1{font-family:var(--serif);font-weight:300;font-size:clamp(36px,3.6vw,56px);line-height:1.08;opacity:0;transform:translateY(18px);animation:fUp .9s .7s var(--ease) forwards}
 .hero-h1 em{font-style:italic}
-.hero-sub{font-size:12.5px;color:var(--muted);line-height:1.85;margin-top:20px;opacity:0;transform:translateY(14px);animation:fUp .9s .9s var(--ease) forwards}
+.hero-sub{font-size:14px;color:var(--muted);line-height:1.85;margin-top:20px;opacity:0;transform:translateY(14px);animation:fUp .9s .9s var(--ease) forwards}
 .hero-search{display:flex;margin-top:28px;opacity:0;transform:translateY(14px);animation:fUp .9s 1.05s var(--ease) forwards}
 .hero-search input{flex:1;background:rgba(255,255,255,.06);border:1px solid var(--border);border-right:none;color:var(--text);font-family:var(--sans);font-size:12px;font-weight:300;padding:12px 16px;outline:none;transition:border-color .25s}
 .hero-search input::placeholder{color:var(--muted)}
@@ -67,8 +67,8 @@ nav ul a:hover{color:var(--text)}nav ul a:hover::after{transform:scaleX(1)}
 .td{width:3px;height:3px;background:rgba(255,255,255,.5);border-radius:50%;flex-shrink:0}
 @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 #featured{padding:0}
-.feat-wrap{display:grid;grid-template-columns:1fr 420px;min-height:82vh}
-.feat-img{position:relative;overflow:hidden;background:#111}
+.feat-wrap{display:grid;grid-template-columns:420px 1fr;min-height:82vh}
+.feat-img{position:relative;overflow:hidden;background:#111;order:2}
 .feat-badge{position:absolute;top:32px;left:32px;z-index:2;background:var(--red);color:#fff;font-size:11px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;padding:7px 16px}
 .feat-loc-tag{position:absolute;top:32px;left:160px;z-index:2;font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.85);padding:7px 16px;background:rgba(0,0,0,.38);backdrop-filter:blur(6px)}
 .feat-photo{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
@@ -78,7 +78,7 @@ nav ul a:hover{color:var(--text)}nav ul a:hover::after{transform:scaleX(1)}
 .thumb img{width:100%;height:100%;object-fit:cover;filter:brightness(.7);transition:filter .3s}
 .thumb:hover img{filter:brightness(1)}
 .thumb-more{position:absolute;inset:0;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:#fff}
-.feat-panel{background:var(--grey-d);display:flex;flex-direction:column;justify-content:center;padding:56px 50px;border-left:1px solid var(--border)}
+.feat-panel{background:var(--grey-d);display:flex;flex-direction:column;justify-content:center;padding:56px 50px;border-right:1px solid var(--border);order:1}
 .feat-ey{font-size:11px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--red);margin-bottom:12px}
 .feat-title{font-family:var(--serif);font-weight:300;font-size:clamp(28px,2.8vw,42px);line-height:1.1}
 .feat-title em{font-style:italic}
@@ -148,18 +148,18 @@ nav ul a:hover{color:var(--text)}nav ul a:hover::after{transform:scaleX(1)}
 .aimg-accent{position:absolute;bottom:-20px;right:-20px;width:180px;height:180px;object-fit:cover;border:4px solid var(--grey-d)}
 .aquote{font-family:var(--serif);font-size:clamp(20px,2.4vw,32px);font-weight:300;line-height:1.4;margin-top:26px;padding-top:26px;border-top:1px solid var(--border)}
 .aquote em{font-style:italic;color:var(--red)}
-.abody{font-size:12.5px;color:var(--muted);line-height:1.9;margin-top:18px}
+.abody{font-size:15px;color:var(--muted);line-height:1.9;margin-top:18px}
 .astats{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:32px;background:var(--border)}
 .astat{background:var(--grey-d);padding:22px 26px}
 .astat-n{font-family:var(--serif);font-size:40px;font-weight:300;line-height:1;color:var(--red)}
 .astat-l{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:6px}
 #break{height:54vh;min-height:360px;overflow:hidden;position:relative}
-.break-bg{position:absolute;inset:-15%;background-image:url('images/quotesection.jpg');background-size:cover;background-position:center;background-attachment:fixed}
+.break-bg{position:absolute;inset:0;background-image:url('images/quotesection.jpg');background-size:cover;background-position:center;background-attachment:fixed}
 .break-ov{position:absolute;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center}
 .break-txt{font-family:var(--serif);font-weight:300;font-size:clamp(24px,3.8vw,52px);line-height:1.25;text-align:center;max-width:780px;padding:0 44px}
 .break-txt em{font-style:italic;color:rgba(255,255,255,.7)}
 #contact{padding:80px 0;background:var(--grey-l)}
-.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:76px;align-items:start;max-width:1100px;margin:0 auto}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:76px;align-items:stretch;max-width:1100px;margin:0 auto}
 .cform{display:flex;flex-direction:column;gap:13px;margin-top:32px}
 .crow{display:grid;grid-template-columns:1fr 1fr;gap:13px}
 .field{display:flex;flex-direction:column;gap:7px}
@@ -167,7 +167,7 @@ nav ul a:hover{color:var(--text)}nav ul a:hover::after{transform:scaleX(1)}
 .field input,.field select,.field textarea{background:rgba(255,255,255,.05);border:1px solid var(--border);color:var(--text);font-family:var(--sans);font-size:14px;font-weight:300;padding:12px 14px;outline:none;transition:border-color .25s;-webkit-appearance:none}
 .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--red)}
 .field textarea{height:106px;resize:vertical}
-.cdets{display:flex;flex-direction:column;gap:14px;justify-content:center;padding-top:100px}
+.cdets{display:flex;flex-direction:column;gap:16px;justify-content:center;align-self:center}
 .cdet{display:flex;gap:12px;align-items:flex-start}
 .cico{width:36px;height:36px;background:var(--red);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:15px;margin-top:2px}
 .ctxt label{font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:2px}
@@ -292,7 +292,7 @@ nav ul a:hover{color:var(--text)}nav ul a:hover::after{transform:scaleX(1)}
       <span class="feat-loc-tag">Herne Bay · Auckland</span>
       <img src="images/15cremorne.jpg" alt="15 Cremorne Street" class="feat-photo"/>
       <div class="thumbs">
-        <div class="thumb"><img src="images/15cremorne.jpg" alt=""/></div>
+        <div class="thumb"><img src="images/L1070149-1024x683.jpg" alt=""/></div>
         <div class="thumb"><img src="images/L1070098-1024x683.jpg" alt=""/></div>
         <div class="thumb"><img src="images/L1070107-1024x683.jpg" alt=""/></div>
         <div class="thumb"><img src="images/L1070149-1024x683.jpg" alt=""/></div>
@@ -349,7 +349,7 @@ nav ul a:hover{color:var(--text)}nav ul a:hover::after{transform:scaleX(1)}
 <section id="about">
   <div class="sw">
     <div class="agrid">
-      <div class="aimg-wrap rv"><img src="images/L1070236-1024x682.jpg" alt="WALL estate" class="aimg"/><img src="images/L1070221-1024x683.jpg" alt="Pool" class="aimg-accent"/></div>
+      <div class="aimg-wrap rv"><img src="images/15cremorne.jpg" alt="WALL estate" class="aimg"/><img src="images/waiheke.jpg" alt="Waiheke" class="aimg-accent"/></div>
       <div class="rv d1">
         <p class="sec-lbl">About WALL</p>
         <h2 class="sec-title">People, Places &amp;<br><em>Design We Admire</em></h2>
@@ -376,14 +376,14 @@ nav ul a:hover{color:var(--text)}nav ul a:hover::after{transform:scaleX(1)}
       <div>
         <p class="sec-lbl rv">Get In Touch</p>
         <h2 class="sec-title rv">Begin Your<br><em>Property Journey</em></h2>
-        <p style="font-size:12.5px;color:var(--muted);line-height:1.85;margin-top:12px" class="rv">Whether you're ready to buy, sell, or simply wish to explore what's possible — our specialists are available for a confidential conversation.</p>
+        <p style="font-size:15px;color:var(--muted);line-height:1.85;margin-top:12px" class="rv">Whether you're ready to buy, sell, or simply wish to explore what's possible — our specialists are available for a confidential conversation.</p>
         <div class="cform rv">
           <div class="crow"><div class="field"><label>First Name</label><input type="text" placeholder="Your first name"/></div><div class="field"><label>Last Name</label><input type="text" placeholder="Your last name"/></div></div>
           <div class="field"><label>Email Address</label><input type="email" placeholder="your@email.com"/></div>
           <div class="field"><label>Phone Number</label><input type="tel" placeholder="+64…"/></div>
           <div class="field"><label>Your Interest</label><select><option value="">Select…</option><option>Buying a property</option><option>Selling my property</option><option>Request a valuation</option><option>Private viewing</option><option>General enquiry</option></select></div>
           <div class="field"><label>Message</label><textarea placeholder="Tell us more…"></textarea></div>
-          <button class="btn-solid" style="align-self:flex-start;padding:13px 38px;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase">Submit Enquiry</button>
+          <button class="btn-solid" style="align-self:flex-start;padding:13px 38px;font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase">Submit Enquiry</button>
         </div>
       </div>
       <div>
